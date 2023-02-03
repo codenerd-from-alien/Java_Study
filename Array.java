@@ -21,13 +21,23 @@ public class Array {
 	}
 	
 	public void remove_even_integer(int arr[]) {
-		//List<Integer> lst = Arrays.asList(arr);자바 배열을 매개변수로 받았을 때에 리스트형으로 변환을 하는 방법을 찾아 봐야함
-		
-		for(int i =0; i < lst.size(); i++) {
-			
-			if(lst.get(i) % 2==0) {
-				
+		int oddCount =0;
+		for(int i =0; i < arr.length; i++) {
+			if(arr[i] % 2 ==0) {
+				oddCount++;
 			}
+		}
+		
+		int[] result =  new int[oddCount];
+		int idx = 0;
+		for(int i =0; i < arr.length; i++) {
+			if(arr[i] % 2 !=0) {
+				result[idx] = arr[i];
+				idx++;
+			}
+		}
+		for(int i =0; i < oddCount;i++) {
+			System.out.println(result[i]);
 		}
 		
 		
