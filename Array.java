@@ -44,6 +44,22 @@ public class Array {
 		
 	}
 	
+	public int findMinimum(int[] arr) {
+		//edge
+		if(arr == null || arr.length ==0) {
+			throw new IllegalArgumentException("Invalid");
+		}
+		int min = arr[0];
+		for(int i =1; i < arr.length; i++) {
+			if(arr[i] < min) {
+				min = arr[i];
+			}
+		}
+		return min;
+	}
+	
+	
+	
 	
 	public static void print_rvs_array(int numbers[], int start, int end) {
 		while(start < end) {
