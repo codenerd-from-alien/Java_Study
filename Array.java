@@ -44,11 +44,29 @@ public class Array {
 		
 	}
 	
+	
+	public static void print_rvs_array(int numbers[], int start, int end) {
+		while(start < end) {
+			int temp = numbers[start];
+			numbers[start] = numbers[end];
+			numbers[end] = temp;
+			start++;
+			end--;
+		}
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		// Array Data Structure
 		Array arr = new Array();
-		arr.arrayDemo();		
+		arr.arrayDemo();	
+		int[] numbers = {2,11,5,10,7,8};
+		print_rvs_array(numbers, 0 , numbers.length - 1);
+		System.out.println("----------------------------");
+		
+		Array arr2 = new Array();
+		arr2.print(numbers);
+		
 	}
 
 
