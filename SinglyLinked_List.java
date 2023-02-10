@@ -79,11 +79,65 @@ public class SinglyLinked_List {
 			previous.next = node; // 현재 previous 변수에 head가 들어 있으면 새로 들어온 노드를 넣음
 			node.next = current; //node 객체안에 next 생성자에서는 방금전 커런트가 가리킨 노드 객체 값을 할당
 		}
+	}
+	
+	public ListNode deleteFirst() {
+		if(head == null) {
+			return null;
+		}
+		ListNode temp = head;
+		head = head.next;
+		temp.next = null;
+		return temp;
+	}
+	
+	public ListNode deleteLast() {
+		if(head == null || head.next == null) {
+			return head;
+		}
+		ListNode current = head;
+		ListNode previous = null;
 		
-		
-		
-		
-	}	
+		while(current.next !=null) {
+			previous = current;
+			current = current.next;
+		}
+		previous.next = null;
+		return current;
+	}
+	
+	public void delete(int position) {
+		if(position == 1) {
+			head = head.next;
+		}else {
+			ListNode previous = head;
+			int count = 1;
+			while( count < position -1 ) {
+				previous = previous.next;
+				count++;
+			}
+			ListNode current = previous.next;
+			previous.next = current.next;
+		}
+	}
+	public boolean find(ListNode head, int searchKey) {
+		if( head == null) {
+			return false;
+		}
+		ListNode current = head;
+		while(current !=null) {
+			if(current.data == searchKey) {
+				return true;
+			}
+			current = current.next;
+		}
+		return false;
+	}
+	
+	
+	
+	
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		SinglyLinked_List sll = new SinglyLinked_List();
