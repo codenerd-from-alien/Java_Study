@@ -20,6 +20,23 @@ public class Queue {
 	public boolean isEmpty() {
 		return length == 0;
 	}
+	public int dequeue() {
+		if(isEmpty()) {
+			System.out.println("Que is already empty");
+		}
+		int result = front.data;
+		front= front.next;
+		if(front == null) {
+			rear = null;
+		}
+		length--;
+		return result;
+		
+	}
+	
+	
+	
+	
 	
 	public void enqueue(int data) {
 		ListNode temp = new ListNode(data);
