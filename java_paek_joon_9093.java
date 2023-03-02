@@ -17,19 +17,23 @@ public class java_paek_joon_9093 {
 		
 		
 		for(int i = 0; i < num;i++) {
-			String str = bf.readLine();
+			String str = bf.readLine() + '\n';//개행 문자도 입력받는 법 생각하기
+			
 			
 			
 			for(int j =0; j < str.length(); j++) {
-				stack.push(str.charAt(j));
-				
-				if(str.charAt(j) == ' ') {					
-						while(!stack.isEmpty()) {
-							sb.append(stack.pop());
-						}
-						/*���ÿ� ���� �� ť�� ������ �ִ� �� �����ϱ�*/
+				if(str.charAt(j) == ' ' || str.charAt(j) == '\n') {//개행 문자 받는 조건을 넣었어야함
+					while(!stack.isEmpty()) {
+						sb.append(stack.peek());
+						stack.pop();
+					}
+					
+					if(stack.isEmpty() && str.charAt(j) ==' ') {
+						sb.append(' '); //반복문이 완전히 실행이 되어서 스택이 비어있고 빈문자열을 만나면 빈 공간 추가
+					}
+				}else {
+					stack.push(str.charAt(j));
 				}
-				
 				
 			}
 			
