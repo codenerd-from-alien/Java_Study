@@ -1,29 +1,30 @@
 package org.example;
 
+import javax.imageio.IIOException;
+import java.io.*;
+import java.util.Scanner;
+
+
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        short s =1;
-        System.out.println(s);
-        int a =3;
-        System.out.println(a);
-        long b =4;
-        System.out.println(b);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        String[] strs = br.readLine().split(" ");
+        int inc= Integer.parseInt(strs[0]);//2
+        int de = Integer.parseInt(strs[1]);//1
+        int h = Integer.parseInt(strs[2]);//5
 
-        float f =5.5F;
-        System.out.println(f);
+        int day = (h - de) /(inc -de);
 
-        System.out.println(Short.MAX_VALUE);//쇼트형이 표현 할 수 있는 자료형의 크기
-        System.out.println(Short.MIN_VALUE); //max 와 Min 메서드로 자료형의 최대 최소 크기
-        System.out.println(Integer.MAX_VALUE);
-        System.out.println(Integer.MIN_VALUE);
-        System.out.println(Long.MIN_VALUE);
-        
-        char c ='A';
-        System.out.println(c);
-        //케릭터 할당
-        byte data ='d';
-        System.out.println(data); //아스키코드 100 출력
-            
+        if((h - de) % (inc -de)  !=0){
+            day+=1;
+        }
+
+
+        bw.write(String.valueOf(day));
+        bw.flush();
+        bw.close();
+
     }
 }
