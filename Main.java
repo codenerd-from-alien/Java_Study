@@ -1,30 +1,36 @@
-package org.example;
-
-import javax.imageio.IIOException;
-import java.io.*;
+import java.lang.reflect.Array;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
-
+// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
+// then press Enter. You can now see whitespace characters in your code.
 public class Main {
-    public static void main(String[] args) throws IOException {
-
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        String[] strs = br.readLine().split(" ");
-        int inc= Integer.parseInt(strs[0]);//2
-        int de = Integer.parseInt(strs[1]);//1
-        int h = Integer.parseInt(strs[2]);//5
-
-        int day = (h - de) /(inc -de);
-
-        if((h - de) % (inc -de)  !=0){
-            day+=1;
+    public static void main(String[] args) {
+        int arr1[] = {11, 9, 7, 10};
+        int[] answer = {};
+        Arrays.sort(arr1);
+        int cnt =0;
+        for(int i =0; i < arr1.length;i++){
+            if(arr1[i] % 2 ==0){
+                cnt++;
+            }
+        }
+        if(cnt ==0){
+            answer[0] = -1;
+        }
+        int idx =0;
+        for(int i =0; i < arr1.length;i++){
+            if(arr1[i] % 2 ==0){
+                answer[idx] = arr1[i];
+                idx++;
+            }
         }
 
-
-        bw.write(String.valueOf(day));
-        bw.flush();
-        bw.close();
-
     }
+
+
 }
